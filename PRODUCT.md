@@ -16,7 +16,7 @@ web
 
 Landing page única, institucional, do escritório **Valença & Moraes Advocacia**: transmitir confiança rapidamente, explicar em linguagem simples o que o escritório faz e converter o visitante em contato (WhatsApp como canal principal, formulário como alternativa). Sucesso = clique em WhatsApp / envio do formulário (eventos `clique_whatsapp` e `envio_formulario` no GA4).
 
-**Contexto real do projeto:** é uma peça de portfólio da Laminy. O escritório, os sócios, os depoimentos, os números e os contatos são **fictícios** e precisam estar identificados como demonstração. O site também serve de estudo de caso: mostra como o template Laminy atende um nicho regulado.
+**Contexto real do projeto:** é uma peça de portfólio. O escritório, os sócios, os depoimentos, os números e os contatos são **fictícios** e precisam estar identificados como demonstração. O site também serve de estudo de caso: mostra como um site institucional atende um nicho regulado.
 
 ## Positioning
 
@@ -31,10 +31,10 @@ Advocacia generalista de bairro, para quem não sabe por onde começar: o difere
 
 ## Capabilities and Constraints
 
-- Stack herdada do template Laminy: Next.js App Router + TypeScript + Tailwind v4, conteúdo em blocos tipados (`src/site/`), deploy na Hostinger. Sem Vercel, sem banco de dados.
+- Stack: Next.js App Router + TypeScript + Tailwind v4, conteúdo em blocos tipados (`src/site/`), deploy na Hostinger. Sem Vercel, sem banco de dados.
 - **Formulário:** valida os campos e abre o WhatsApp com nome, assunto e mensagem pré-preenchidos (decisão confirmada). Sem backend → o site pode sair como export estático (`npm run build:static`).
 - **WhatsApp:** número fictício de demonstração (+55 11 90000-0000), trocar em `src/site/config.ts`.
-- Escopo fixo: landing única com 8 seções na ordem do briefing (`docs/briefing-valenca-moraes.md`). Fora do escopo: blog, área do cliente, páginas por área, chatbot, agendamento online, multi-idioma, tema escuro.
+- Escopo fixo: landing única com 8 seções na ordem do briefing. Fora do escopo: blog, área do cliente, páginas por área, chatbot, agendamento online, multi-idioma, tema escuro.
 - Idioma pt-BR, apenas tema claro.
 - **Publicidade na advocacia (Código de Ética da OAB, Provimento 205/2021):** não prometer nem garantir resultado; não divulgar preço, promoção ou brinde; sem superlativos ("o melhor", "número 1") nem captação agressiva; sem resultados de causas, valores ganhos ou nomes de clientes; sem imagens/símbolos que sugiram poder do Estado; depoimentos só sobre o atendimento, nunca sobre resultado. Honorários explicados só em termos gerais.
 

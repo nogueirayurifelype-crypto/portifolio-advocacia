@@ -1,8 +1,8 @@
 {
-  "name": "web-gen-template",
+  "name": "valenca-moraes-advocacia",
   "version": "1.0.0",
   "private": true,
-  "description": "Template-base de sites institucionais da Laminy (Next.js App Router, estático, deploy Hostinger).",
+  "description": "Site institucional de portfólio para um escritório de advocacia fictício (Next.js App Router, export estático).",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

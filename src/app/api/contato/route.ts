@@ -4,7 +4,7 @@ import { siteConfig } from '@/site/config'
 /**
  * Formulário nativo → e-mail, via Resend.
  *
- * Não há banco de dados nem backend próprio neste template: a mensagem vira um
+ * Não há banco de dados nem backend próprio neste projeto: a mensagem vira um
  * e-mail para a caixa do cliente e o ciclo termina aí.
  *
  * ⚠️ Esta rota exige runtime Node.js (Hostinger com Node.js: `npm run build`

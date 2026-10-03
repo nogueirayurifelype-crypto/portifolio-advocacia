@@ -3,7 +3,7 @@ import type { PaginaDeBlocos } from '@/site/types'
 /**
  * Home — Valença & Moraes Advocacia.
  *
- * ⚠️ Escritório FICTÍCIO (peça de portfólio da Laminy). Sócios, registros da
+ * ⚠️ Escritório FICTÍCIO (peça de portfólio). Sócios, registros da
  * OAB, indicadores e depoimentos são inventados e estão rotulados na própria
  * página como demonstração/ilustrativos. Em um cliente real, nada disso entra
  * sem confirmação e autorização.
@@ -167,7 +167,7 @@ export const paginaHome: PaginaDeBlocos = {
             ],
             foto: {
               src: '/imagens/unsplash/socio-rafael-valenca.webp',
-              alt: 'Retrato em preto e branco de um homem de camisa social branca, sentado em uma poltrona de couro.',
+              alt: 'Foto em preto e branco de mãos escrevendo com caneta sobre um documento, numa mesa de trabalho.',
               largura: 800,
               altura: 1000,
             },
@@ -182,7 +182,7 @@ export const paginaHome: PaginaDeBlocos = {
             ],
             foto: {
               src: '/imagens/unsplash/socia-helena-moraes.webp',
-              alt: 'Retrato em preto e branco de uma mulher de cabelos longos e escuros, com blazer preto, olhando para a câmera.',
+              alt: 'Foto em preto e branco de mãos usando um carimbo de relevo sobre uma folha de papel.',
               largura: 800,
               altura: 1000,
             },

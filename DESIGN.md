@@ -283,7 +283,7 @@ A breeze-block wall: a deep-pastilha ground with middle-pastilha circular openin
 Indicators read like a lobby room directory: a cal panel with a 1px graphite border, each row a Source Sans 3 600 label, a dotted soft-graphite leader filling the gap, and the value in Gloock 2rem pastilha, baseline-aligned.
 
 ### Caixilho Frame
-Portraits and secondary photos (outside the hero) sit in front of a 1px bronze frame offset 0.75rem down and right (light bronze on green). Portraits are black and white.
+Partner images and secondary photos (outside the hero) sit in front of a 1px bronze frame offset 0.75rem down and right (light bronze on green). Partner images are black and white and never show an identifiable face: the partners are fictional, so they are represented by their hands at work (writing, stamping a document), never by a real person's portrait.
 
 ### Timeline Steps
 Steps on a green field joined by a light-bronze rule (vertical on phones, horizontal on desktop). Step numerals are Gloock in light bronze; steps still below the fold start as outline-only numerals and fill in as they enter view (600ms). Without JavaScript or under reduced motion, all steps are filled.
@@ -296,7 +296,7 @@ A fixed bottom-right pastilha button with the WhatsApp mark and a retention pane
 ### Do:
 - **Do** derive vertical spacing and band heights from the 3.5rem module (1, 1.5, 2, 2.5, 3 modules).
 - **Do** give each viewport exactly one placa; demote everything else to the outline button or the arrow link.
-- **Do** frame portraits and secondary photos with the 1px bronze caixilho offset 0.75rem, and keep portraits black and white; the hero photo is set against the cobogó wall instead.
+- **Do** frame partner images and secondary photos with the 1px bronze caixilho offset 0.75rem, and keep partner images black and white and faceless; the hero photo is set against the cobogó wall instead.
 - **Do** set every numeral and figure in Gloock, in bronze or pastilha.
 - **Do** use the 2px solid outline at 2px offset for field focus, and the 2px bronze outline at 3px offset (light bronze on green) for every other focus.
 - **Do** keep photos whole and set the cobogó wall behind them, offset down and right, or alone as a band.

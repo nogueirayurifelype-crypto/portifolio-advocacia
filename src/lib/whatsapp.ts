@@ -3,7 +3,7 @@ import { siteConfig } from '@/site/config'
 /**
  * Monta o link wa.me com a mensagem pré-preenchida.
  *
- * Não há integração com a API do WhatsApp neste template — por decisão de
+ * Não há integração com a API do WhatsApp neste projeto — por decisão de
  * produto. É apenas um link `wa.me`; o que existe de "produto" em volta é a UX
  * de retenção (painel com opções de mensagem) e o rastreio do clique no GA4.
  */

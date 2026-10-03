@@ -9,7 +9,7 @@ import type { BlocoGaleria } from '@/site/types'
  * (itens marcados com `destaque: true` ocupam célula dupla).
  *
  * O peso deste bloco (central ou secundário) depende do negócio do cliente —
- * decidido no brief daquele projeto, não neste template.
+ * decidido no brief de cada projeto.
  *
  * Quando a foto documenta um produto/imóvel real que o visitante vai conferir
  * pessoalmente, ela é sempre foto real — nunca substituir por imagem gerada.

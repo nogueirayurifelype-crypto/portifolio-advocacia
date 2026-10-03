@@ -1,10 +1,9 @@
 /**
- * Modelo de página do template.
+ * Modelo de página do site.
  *
  * Regra central: uma página é uma lista ordenada de blocos + metadados de SEO.
  * Cada bloco separa `conteudo` (varia por cliente) de `variante` (escolhida
- * conforme o brief daquele cliente, no repositório dele — este template não
- * fixa nenhuma).
+ * conforme o brief de cada cliente).
  *
  * Header, rodapé e botão flutuante de WhatsApp NÃO são blocos — são estrutura
  * fixa do site, definida em `src/site/config.ts` e renderizada no layout raiz.

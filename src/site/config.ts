@@ -4,8 +4,8 @@
  * Tudo aqui é estrutura fixa do site — existe em todas as páginas, fora do
  * array de blocos: header/menu, rodapé e botão flutuante de WhatsApp.
  *
- * ⚠️ Valença & Moraes Advocacia é um escritório FICTÍCIO (peça de portfólio da
- * Laminy). Número, endereço, e-mail e registros da OAB são inventados e estão
+ * ⚠️ Valença & Moraes Advocacia é um escritório FICTÍCIO (peça de portfólio).
+ * Número, endereço, e-mail e registros da OAB são inventados e estão
  * marcados como tal. O domínio `.example` é reservado (RFC 2606) de propósito:
  * nenhum e-mail ou link aponta para alguém real.
  */
@@ -25,8 +25,8 @@ export interface SiteConfig {
   descricaoCurta: string
   /**
    * Nicho do cliente, em texto livre — informativo (aparece só como contexto de
-   * negócio). Não seleciona preset nem muda nada neste template: a estética e
-   * o conteúdo de cada cliente são decididos no projeto de cada cliente.
+   * negócio). Não seleciona preset nem muda nada na renderização: a
+   * estética e o conteúdo são decididos no próprio projeto.
    */
   nicho: string
   /** URL canônica do site em produção. Sem barra no final. */
