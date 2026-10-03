@@ -1,0 +1,546 @@
+@import 'tailwindcss';
+
+/*
+ * ─────────────────────────────────────────────────────────────────────────────
+ * Valença & Moraes — mundo visual "Edifício Modernista Paulista".
+ *
+ * O escritório mora num prédio comercial modernista do centro de Jundiaí: a
+ * página é feita do material desse prédio. Campo verde-pastilha, concreto
+ * caiado, texto grafite, bronze só em caixilhos e números, e o cobogó (luz
+ * passa, privacidade fica) como figura de sigilo + transparência.
+ *
+ * O módulo do cobogó (3.5rem = 56px) é o módulo da grade: espaçamentos de
+ * seção e alturas de faixa são múltiplos dele.
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
+
+@theme {
+  /* Concreto caiado — chão da página */
+  --color-cal: #f1f0eb;
+  --color-cal-escura: #e4e3dc;
+  --color-rejunte: #cfcec5;
+
+  /* Pastilha verde — campos de cor que ocupam seções inteiras */
+  --color-pastilha: #1e4a3c;
+  --color-pastilha-funda: #143329;
+  --color-pastilha-media: #2c5e4e;
+  --color-pastilha-clara: #c9d9cf;
+  --color-sobre-pastilha: #f1f0eb;
+  --color-sobre-pastilha-suave: #b8cdc2;
+
+  /* Grafite — texto */
+  --color-grafite: #24272a;
+  --color-grafite-suave: #50565a;
+
+  /* Bronze — caixilhos, números, fios */
+  --color-bronze: #8a5a2c;
+  --color-bronze-claro: #c99a62;
+
+  /* Tons de pastilha por área de atuação */
+  --color-area-civel: #2d5d6e;
+  --color-area-trabalhista: #2f6b57;
+  --color-area-familia: #a4553a;
+  --color-area-consumidor: #8a6a1f;
+  --color-area-previdenciario: #59677a;
+  --color-area-empresarial: #5f6638;
+
+  --color-erro: #a2382b;
+
+  /* Tipografia */
+  --font-titulo: var(--fonte-titulo), 'Iowan Old Style', Georgia, serif;
+  --font-texto: var(--fonte-texto), system-ui, -apple-system, sans-serif;
+
+  /* Módulo do cobogó */
+  --spacing-modulo: 3.5rem;
+
+  --ease-saida: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+    background-color: var(--color-pastilha-funda);
+  }
+
+  body {
+    background-color: var(--color-cal);
+    color: var(--color-grafite);
+    font-family: var(--font-texto);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-variant-numeric: lining-nums;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-titulo);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.08;
+    text-wrap: balance;
+  }
+
+  h3 {
+    line-height: 1.2;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background-color: var(--color-pastilha);
+    color: var(--color-cal);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-bronze);
+    outline-offset: 3px;
+  }
+
+  input,
+  textarea,
+  select {
+    caret-color: var(--color-pastilha);
+  }
+
+  html {
+    scrollbar-color: var(--color-pastilha-media) var(--color-cal-escura);
+  }
+
+  /* Respeita quem pediu menos movimento no sistema. */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Largura útil comum a todos os blocos. */
+  .secao {
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 640px) {
+    .secao {
+      padding-inline: 2rem;
+    }
+  }
+
+  .secao-interna {
+    margin-inline: auto;
+    width: 100%;
+    max-width: 75rem;
+  }
+
+  /* Ritmo vertical: dois módulos no desktop, um e meio no celular. */
+  .secao-ritmo {
+    padding-block: calc(var(--spacing-modulo) * 1.5);
+  }
+
+  @media (min-width: 1024px) {
+    .secao-ritmo {
+      padding-block: calc(var(--spacing-modulo) * 2);
+    }
+  }
+
+  /* Campo verde-pastilha: a seção inteira é a cor. */
+  .campo-pastilha {
+    background-color: var(--color-pastilha);
+    color: var(--color-sobre-pastilha);
+  }
+
+  .campo-pastilha ::selection {
+    background-color: var(--color-cal);
+    color: var(--color-pastilha);
+  }
+
+  .campo-pastilha :focus-visible {
+    outline-color: var(--color-bronze-claro);
+  }
+
+  .titulo-secao {
+    font-size: clamp(2rem, 1.5rem + 2vw, 3.25rem);
+  }
+
+  .texto-apoio {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--color-grafite-suave);
+    max-width: 38rem;
+  }
+
+  .campo-pastilha .texto-apoio {
+    color: var(--color-sobre-pastilha-suave);
+  }
+
+  /* ── Ações ────────────────────────────────────────────────────────────── */
+
+  .botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
+    min-height: 3.5rem;
+    padding: 0.875rem 1.625rem;
+    font-family: var(--font-texto);
+    font-weight: 700;
+    font-size: 1.0625rem;
+    line-height: 1.2;
+    letter-spacing: 0.005em;
+    border-radius: 2px;
+    transition:
+      background-color 200ms var(--ease-saida),
+      color 200ms var(--ease-saida),
+      box-shadow 200ms var(--ease-saida),
+      transform 200ms var(--ease-saida);
+  }
+
+  .botao:active {
+    transform: translateY(1px);
+  }
+
+  /*
+   * A placa: a única superfície invertida de cada tela, onde mora a ação
+   * principal. Sobre o verde ela é cal; sobre o cal ela é verde.
+   */
+  .botao-placa {
+    background-color: var(--color-pastilha);
+    color: var(--color-cal);
+    box-shadow:
+      inset 0 0 0 1px var(--color-pastilha-funda),
+      0 2px 0 var(--color-bronze);
+  }
+
+  .botao-placa:hover {
+    background-color: var(--color-pastilha-funda);
+  }
+
+  .campo-pastilha .botao-placa {
+    background-color: var(--color-cal);
+    color: var(--color-pastilha-funda);
+    box-shadow:
+      inset 0 0 0 1px var(--color-cal),
+      0 2px 0 var(--color-bronze-claro);
+  }
+
+  .campo-pastilha .botao-placa:hover {
+    background-color: #ffffff;
+  }
+
+  .botao-contorno {
+    color: var(--color-pastilha);
+    box-shadow: inset 0 0 0 1px currentColor;
+  }
+
+  .botao-contorno:hover {
+    background-color: var(--color-pastilha);
+    color: var(--color-cal);
+  }
+
+  .campo-pastilha .botao-contorno {
+    color: var(--color-sobre-pastilha);
+  }
+
+  .campo-pastilha .botao-contorno:hover {
+    background-color: var(--color-cal);
+    color: var(--color-pastilha-funda);
+  }
+
+  /* Link de texto com seta — a ação secundária. */
+  .link-seta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 3rem;
+    font-weight: 700;
+    color: var(--color-pastilha);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.35em;
+    text-decoration-color: var(--color-bronze);
+    transition: text-decoration-color 200ms var(--ease-saida);
+  }
+
+  .link-seta svg {
+    transition: transform 240ms var(--ease-saida);
+  }
+
+  .link-seta:hover {
+    text-decoration-color: currentColor;
+  }
+
+  .link-seta:hover svg {
+    transform: translateX(3px);
+  }
+
+  .campo-pastilha .link-seta {
+    color: var(--color-sobre-pastilha);
+    text-decoration-color: var(--color-bronze-claro);
+  }
+
+  .link-texto {
+    font-weight: 600;
+    color: var(--color-pastilha);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.25em;
+    text-decoration-color: var(--color-bronze);
+  }
+
+  .link-texto:hover {
+    text-decoration-color: currentColor;
+  }
+
+  /* ── Caixilho: moldura de bronze deslocada, como esquadria de janela ─── */
+
+  .caixilho {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .caixilho::before {
+    content: '';
+    position: absolute;
+    inset: 0.75rem -0.75rem -0.75rem 0.75rem;
+    border: 1px solid var(--color-bronze);
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .campo-pastilha .caixilho::before {
+    border-color: var(--color-bronze-claro);
+  }
+
+  /*
+   * ── Parede de cobogó ───────────────────────────────────────────────────
+   * Blocos vazados no módulo da grade (3.5rem = 56px): abertura grande no
+   * centro de cada bloco e abertura pequena nos vértices. Nunca vai por cima
+   * de foto — aparece atrás dela (Hero) ou sozinha (faixa acima do rodapé).
+   */
+  .parede-cobogo {
+    background-color: var(--color-pastilha-funda);
+    background-image:
+      radial-gradient(circle at 50% 50%, var(--color-pastilha-media) 24.5px, transparent 25.25px),
+      radial-gradient(circle at 50% 50%, var(--color-pastilha-media) 8.3px, transparent 9px);
+    background-size: var(--spacing-modulo) var(--spacing-modulo);
+    background-position:
+      0 0,
+      calc(var(--spacing-modulo) / 2) calc(var(--spacing-modulo) / 2);
+  }
+
+  /*
+   * O único movimento autoral da página: a parede atrás da foto do Hero
+   * desliza meio módulo enquanto o Hero sai da tela. Estática sem suporte a
+   * scroll-driven animations ou com pedido de menos movimento.
+   */
+  @keyframes parede-deslizar {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(calc(var(--spacing-modulo) / -2), calc(var(--spacing-modulo) / -2), 0);
+    }
+  }
+
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .parede-deslizante {
+        animation: parede-deslizar linear both;
+        animation-timeline: view();
+        animation-range: exit 0% exit 80%;
+      }
+    }
+  }
+
+  /*
+   * Pastilha: campo de cor com rejunte claro a cada 14px (um quarto do
+   * módulo), como o revestimento de vidro dos prédios dos anos 60.
+   */
+  .pastilha-mosaico {
+    background-image:
+      linear-gradient(rgb(255 255 255 / 0.16) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(255 255 255 / 0.16) 1px, transparent 1px);
+    background-size: calc(var(--spacing-modulo) / 4) calc(var(--spacing-modulo) / 4);
+    background-position: -1px -1px;
+  }
+
+  /* ── Formulário ─────────────────────────────────────────────────────── */
+
+  .formulario {
+    display: grid;
+    gap: 1.5rem 1.25rem;
+  }
+
+  @media (min-width: 640px) {
+    .formulario {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .campo-largo {
+    grid-column: 1 / -1;
+  }
+
+  .campo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .campo-rotulo {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--color-grafite);
+  }
+
+  .campo-opcional {
+    font-weight: 400;
+    color: var(--color-grafite-suave);
+  }
+
+  .campo-controle {
+    width: 100%;
+    min-height: 3.25rem;
+    padding: 0.75rem 1rem;
+    font: inherit;
+    font-size: 1.0625rem;
+    color: var(--color-grafite);
+    background-color: #fbfbf8;
+    border: 1px solid #7a7f7b;
+    border-radius: 2px;
+    transition:
+      border-color 160ms var(--ease-saida),
+      box-shadow 160ms var(--ease-saida);
+  }
+
+  .campo-controle::placeholder {
+    color: #6b7073;
+  }
+
+  .campo-controle:hover {
+    border-color: var(--color-grafite-suave);
+  }
+
+  .campo-controle:focus {
+    outline: 2px solid var(--color-pastilha);
+    outline-offset: 2px;
+    border-color: var(--color-pastilha);
+  }
+
+  .campo-controle-erro {
+    border-color: var(--color-erro);
+  }
+
+  .campo-controle-erro:focus {
+    outline-color: var(--color-erro);
+    border-color: var(--color-erro);
+  }
+
+  textarea.campo-controle {
+    resize: vertical;
+    min-height: 8.5rem;
+  }
+
+  select.campo-controle {
+    appearance: none;
+    padding-right: 2.75rem;
+    background-image:
+      linear-gradient(45deg, transparent 50%, var(--color-grafite) 50%),
+      linear-gradient(135deg, var(--color-grafite) 50%, transparent 50%);
+    background-position:
+      calc(100% - 1.35rem) 55%,
+      calc(100% - 1rem) 55%;
+    background-size: 0.35rem 0.35rem;
+    background-repeat: no-repeat;
+  }
+
+  .campo-dica {
+    font-size: 0.9375rem;
+    color: var(--color-grafite-suave);
+  }
+
+  .campo-erro {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.4rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-erro);
+  }
+
+  .campo-erro svg {
+    margin-top: 0.2rem;
+    flex-shrink: 0;
+  }
+
+  .campo-consentimento {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    cursor: pointer;
+  }
+
+  .campo-consentimento input {
+    margin-top: 0.15rem;
+    width: 1.375rem;
+    height: 1.375rem;
+    flex-shrink: 0;
+    accent-color: var(--color-pastilha);
+    cursor: pointer;
+  }
+
+  .formulario-envio {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: stretch;
+  }
+
+  @media (min-width: 640px) {
+    .formulario-envio {
+      flex-direction: row;
+      align-items: center;
+      gap: 1.25rem;
+    }
+  }
+
+  .formulario-sucesso {
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+    padding: 1rem 1.125rem;
+    background-color: var(--color-pastilha-clara);
+    color: var(--color-pastilha-funda);
+    font-weight: 600;
+  }
+
+  .formulario-sucesso svg {
+    margin-top: 0.2rem;
+    flex-shrink: 0;
+  }
+
+  /* ── Revelação discreta (só com JS e sem pedido de menos movimento) ──── */
+
+  .etapa-numero {
+    transition:
+      color 600ms var(--ease-saida),
+      -webkit-text-stroke-color 600ms var(--ease-saida);
+  }
+}

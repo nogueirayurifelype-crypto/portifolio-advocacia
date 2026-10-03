@@ -1,0 +1,21 @@
+# Dependências
+node_modules/
+
+# Build do Next (regenerados por `npm run build` / `npm run build:static`)
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+
+# Variáveis de ambiente (só o exemplo é versionado)
+.env*
+!.env.example
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Sistema
+.DS_Store
+
