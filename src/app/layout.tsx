@@ -42,6 +42,7 @@ export const metadata: Metadata = {
   description: siteConfig.descricaoCurta,
   applicationName: siteConfig.nome,
   authors: [{ name: siteConfig.nome }],
+  robots: siteConfig.indexavel ? undefined : { index: false, follow: false },
   formatDetection: { telephone: true, address: true, email: true },
 }
 

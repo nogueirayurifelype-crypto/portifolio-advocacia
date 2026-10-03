@@ -9,6 +9,12 @@ import { siteConfig } from '@/site/config'
 export const dynamic = 'force-static'
 
 export default function robots(): MetadataRoute.Robots {
+  // Portfólio: mantém o rastreio liberado de propósito, para o Google conseguir ler o
+  // `noindex` (um Disallow total impediria isso). Sem sitemap e sem `host`.
+  if (!siteConfig.indexavel) {
+    return { rules: [{ userAgent: '*', allow: '/', disallow: ['/api/'] }] }
+  }
+
   return {
     rules: [
       {

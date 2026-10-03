@@ -11,6 +11,8 @@ import { paginas } from '@/site/paginas'
 export const dynamic = 'force-static'
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  if (!siteConfig.indexavel) return []
+
   const agora = new Date()
 
   return paginas

@@ -1,0 +1,4 @@
+# Portfólio: impede indexação no nível do servidor (vale também para PDFs e imagens).
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "noindex, nofollow"
+</IfModule>

@@ -19,7 +19,7 @@ export function metadataDaPagina(pagina: Pagina): Metadata {
     alternates: {
       canonical: url,
     },
-    robots: seo.naoIndexar
+    robots: seo.naoIndexar || !siteConfig.indexavel
       ? { index: false, follow: false }
       : { index: true, follow: true, 'max-image-preview': 'large' },
     openGraph: {

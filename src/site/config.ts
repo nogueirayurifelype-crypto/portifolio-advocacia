@@ -73,6 +73,12 @@ export interface SiteConfig {
   }
   /** Measurement ID do GA4 deste cliente. Vem de env, nunca fixo no código. */
   ga4Id: string
+  /**
+   * `false` = site de portfólio/demonstração: não deve aparecer no Google.
+   * Liga `noindex` nas páginas, esvazia o sitemap e remove o link do sitemap no robots.
+   * Ao migrar para o domínio do cliente, trocar para `true` e remover `public/.htaccess`.
+   */
+  indexavel: boolean
   /** Tipo de negócio no schema.org. Ex.: LocalBusiness, Dentist, LegalService, RealEstateAgent. */
   schemaTipo: string
 }
@@ -141,5 +147,6 @@ export const siteConfig: SiteConfig = {
     assinatura: 'Valença & Moraes Advocacia (demonstração).',
   },
   ga4Id: process.env.NEXT_PUBLIC_GA4_ID ?? '',
+  indexavel: false,
   schemaTipo: 'LegalService',
 }
